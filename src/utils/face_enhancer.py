@@ -1,5 +1,17 @@
 import os
-import torch 
+import sys
+import types
+import torch
+
+# torchvision.transforms.functional_tensor was removed in torchvision 0.17.0;
+# basicsr (a gfpgan dependency) still imports from it.
+try:
+    import torchvision.transforms.functional_tensor  # noqa: F401
+except ImportError:
+    import torchvision.transforms.functional as _F
+    _compat = types.ModuleType("torchvision.transforms.functional_tensor")
+    _compat.rgb_to_grayscale = _F.rgb_to_grayscale
+    sys.modules["torchvision.transforms.functional_tensor"] = _compat
 
 from gfpgan import GFPGANer
 
