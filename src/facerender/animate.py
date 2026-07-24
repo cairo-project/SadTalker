@@ -20,7 +20,11 @@ from src.facerender.modules.generator import OcclusionAwareGenerator, OcclusionA
 from src.facerender.modules.make_animation import make_animation 
 
 from pydub import AudioSegment 
-from src.utils.face_enhancer import enhancer_generator_with_len, enhancer_list
+try:
+    from src.utils.face_enhancer import enhancer_generator_with_len, enhancer_list
+except ImportError:
+    enhancer_generator_with_len = None
+    enhancer_list = None
 from src.utils.paste_pic import paste_pic
 from src.utils.videoio import save_video_with_watermark
 

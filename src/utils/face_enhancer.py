@@ -1,7 +1,10 @@
 import os
 import torch 
 
-from gfpgan import GFPGANer
+try:
+    from gfpgan import GFPGANer
+except ImportError:
+    GFPGANer = None
 
 from tqdm import tqdm
 
