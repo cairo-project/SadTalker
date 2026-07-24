@@ -39,4 +39,4 @@ where = ["."]
 include = ["src*"]
 
 [tool.setuptools.package-data]
-"*" = ["*.yaml", "*.yml", "*.json", "*.dat"]
+"*" = ["*.yaml", "*.yml", "*.json", "*.dat", "*.mat"]
